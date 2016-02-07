@@ -1,0 +1,23 @@
+{
+  "name": "auto-auth",
+  "version": "0.0.1",
+  "description": "Automatic mineflayer bot registration/login on server",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/tap ./test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/G07cha/AutoAuth.git"
+  },
+  "keywords": [
+    "mineflayer",
+    "bot",
+    "minecraft"
+  ],
+  "author": "G07cha",
+  "license": "MIT",
+  "devDependencies": {
+    "tap": "^5.4.2"
+  }
+}
