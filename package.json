@@ -1,5 +1,5 @@
 {
-  "name": "auto-auth",
+  "name": "mineflayer-auto-auth",
   "version": "0.0.1",
   "description": "Automatic mineflayer bot registration/login on server",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/G07cha/AutoAuth.git"
+    "url": "https://github.com/G07cha/MineflayerAutoAuth.git"
   },
   "keywords": [
     "mineflayer",
