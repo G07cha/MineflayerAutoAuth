@@ -13,21 +13,21 @@ module.exports = function(bot, config) {
     config = {
       password: config
     };
-  } else if (config.password) {
-    console.log('Password property missing in second argument');
+  } else if (!config.password) {
+    throw new Error('Password property missing in second argument');
   }
 
   bot.chatAddPattern(/\/register/, 'registerRequest', 'Registration request from server');
   bot.chatAddPattern(/\/login/, 'loginRequest', 'Login request from server');
 
   bot.on('registerRequest', function() {
-    authCommand('register', config.password);
+    bot.chat(authCommand('register', config.password));
     if(config.logging) {
       console.log('Got register request');
     }
   });
   bot.on('loginRequest', function() {
-    authCommand('login', config.password);
+    bot.chat(authCommand('login', config.password));
     if(config.logging) {
       console.log('Got login request');
     }
