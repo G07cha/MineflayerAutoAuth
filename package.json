@@ -1,6 +1,6 @@
 {
   "name": "mineflayer-auto-auth",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Automatic mineflayer bot registration/login on server",
   "main": "index.js",
   "scripts": {
