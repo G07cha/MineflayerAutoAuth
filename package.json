@@ -4,7 +4,7 @@
   "description": "Automatic mineflayer bot registration/login on server",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/tap ./test.js"
+    "test": "node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,8 @@
   "author": "G07cha",
   "license": "MIT",
   "devDependencies": {
-    "tap": "^5.4.2"
+    "minecraft-protocol": "^0.16.6",
+    "mineflayer": "^1.6.0",
+    "mocha": "^2.4.5"
   }
 }
