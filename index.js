@@ -1,6 +1,9 @@
 var authCommand = require('./lib/generate-auth');
 
 module.exports = function(bot, config) {
+  // Detect possible login/register failure
+  var isCommandSended = false;
+
   if(!bot) {
     throw new Error('Bot object is missing, please provide valid mineflayer bot as first argument');
   }
@@ -25,11 +28,33 @@ module.exports = function(bot, config) {
     if(config.logging) {
       console.log('Got register request');
     }
+
+    if(isCommandSended) {
+      console.log('Register request repeated, probably failed to register');
+      if(config.repeatCb) {
+        config.repeatCb.call();
+      }
+    }
+
+    if(!config.ignoreRepeat) {
+      isCommandSended = true;
+    }
   });
   bot.on('loginRequest', function() {
     bot.chat(authCommand('login', config.password));
     if(config.logging) {
       console.log('Got login request');
+    }
+
+    if(isCommandSended) {
+      console.log('Login request repeated, probably failed to login');
+      if(config.repeatCb) {
+        config.repeatCb.call();
+      }
+    }
+
+    if(!config.ignoreRepeat) {
+      isCommandSended = true;
     }
   });
 };
