@@ -4,7 +4,17 @@ Minecraft bot auth in servers that don't use `online-mode=true` and require chat
 
 ## Install
 
+### As dependency
+
 `npm i mineflayer-auto-auth`
+
+### As development version
+
+```
+git clone https://github.com/G07cha/MineflayerAutoAuth
+npm install
+npm test
+```
 
 ## Usage
 
