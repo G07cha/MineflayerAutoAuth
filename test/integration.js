@@ -40,6 +40,13 @@ describe('Integration', function() {
         done();
       });
     });
+
+    it('should emit "serverAuth" event after auth request', function(done) {
+      bot.on('serverAuth', function() {
+        done();
+      });
+      sendMsg('/login command please');
+    });
   });
 
   describe('Advanced config', function() {

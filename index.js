@@ -29,6 +29,8 @@ module.exports = function(bot, config) {
       console.log('Got register request');
     }
 
+    bot.emit('serverAuth');
+
     if(isCommandSended) {
       console.log('Register request repeated, probably failed to register');
       if(config.repeatCb) {
@@ -45,6 +47,8 @@ module.exports = function(bot, config) {
     if(config.logging) {
       console.log('Got login request');
     }
+
+    bot.emit('serverAuth');
 
     if(isCommandSended) {
       console.log('Login request repeated, probably failed to login');

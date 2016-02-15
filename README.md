@@ -1,6 +1,6 @@
 # AutoAuth
 
-Minecraft bot auth in servers that don't use `online-mode=true` and require chat authentication. After extending bot will send auth data on `/register` and `/login` messages in chat. Extends [mineflayer](https://github.com/PrismarineJS/mineflayer).
+Minecraft bot auth in servers that don't use `online-mode=true` and require chat authentication. After extending bot will send auth data on `/register` and `/login` messages in chat and emit `serverAuth` event  after that. Extends [mineflayer](https://github.com/PrismarineJS/mineflayer).
 
 ## Install
 
@@ -33,7 +33,11 @@ require('mineflayer-auto-auth')(bot, {
   logging: true,
   password: 'password',
   ignoreRepeat: true
-})
+});
+
+bot.on('serverAuth', function() {
+  // Here bot should be already authorized
+});
 ```
 
 ## API
