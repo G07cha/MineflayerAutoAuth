@@ -1,6 +1,6 @@
 {
   "name": "mineflayer-auto-auth",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Automatic mineflayer bot registration/login on server",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "author": "G07cha",
   "license": "MIT",
   "peerDependencies": {
-    "mineflayer": "1.6.x"
+    "mineflayer": "^2.7.2"
   },
   "devDependencies": {
     "@mocha/eslint-config-mocha": "0.0.0",
@@ -32,8 +32,8 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
-    "minecraft-protocol": "^0.16.6",
-    "mineflayer": "^1.6.0",
-    "mocha": "^2.4.5"
+    "minecraft-protocol": "^1.5.3",
+    "mineflayer": "^2.7.2",
+    "mocha": "^5.2.0"
   }
 }
