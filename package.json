@@ -18,6 +18,9 @@
   ],
   "author": "G07cha",
   "license": "MIT",
+  "peerDependencies": {
+    "mineflayer": "1.6.x"
+  },
   "devDependencies": {
     "@mocha/eslint-config-mocha": "0.0.0",
     "eslint": "^4.19.1",
