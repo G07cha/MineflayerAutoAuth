@@ -1,8 +1,9 @@
 var authCommand = require('./lib/generate-auth');
 
-module.exports = function(bot, config) {
+module.exports = function(bot, botConfig) {
   // Detect possible login/register failure
   var isCommandSended = false;
+  var config = botConfig.AutoAuth;
 
   if(!bot) {
     throw new Error('Bot object is missing, please provide valid mineflayer bot as first argument');

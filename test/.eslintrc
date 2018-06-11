@@ -1,0 +1,10 @@
+{
+  "extends": "mocha/test",
+  "plugins": [
+    "mocha"
+  ],
+  "rules": {
+    "mocha/no-exclusive-tests": "error",
+    "node/no-unpublished-require": "off"
+  }
+}
