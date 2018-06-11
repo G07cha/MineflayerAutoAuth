@@ -77,7 +77,7 @@ describe('Integration', function() {
       }, ignoreRepeat: true});
 
       sendMsg('/login command please');
-      sendMsg('/register command man', function(packet) {
+      sendMsg('/register command man', function() {
         msgCount++;
         if(msgCount === 2) {
           done();
