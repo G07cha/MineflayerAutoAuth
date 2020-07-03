@@ -1,4 +1,5 @@
 var authCommand = require('./lib/generate-auth');
+var authCommandDouble = require('./lib/generate-auth-double');
 
 module.exports = function(bot, botConfig) {
   // Detect possible login/register failure
@@ -26,6 +27,7 @@ module.exports = function(bot, botConfig) {
 
   bot.on('registerRequest', function() {
     bot.chat(authCommand('register', config.password));
+    bot.chat(authCommandDouble('register', config.password));
     if(config.logging) {
       console.log('Got register request');
     }
