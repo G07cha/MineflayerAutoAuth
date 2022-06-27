@@ -1,5 +1,5 @@
 {
-  "extends": "mocha/test",
+  "extends": "plugin:mocha/recommended",
   "plugins": [
     "mocha"
   ],

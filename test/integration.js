@@ -21,14 +21,16 @@ describe('Integration', function() {
     beforeEach(function() {
       bot = mineflayer.createBot({
         username: 'Player',
-        plugins: [AutoAuth],
+        plugins: {
+          AutoAuth
+        },
         AutoAuth: 'testpass'
       });
     });
   
     afterEach(function(done) {
       bot.quit();
-      bot.on('end', done);
+      bot.on('end', () => done());
     });
 
     it('should register on "/register" message', function(done) {
@@ -58,7 +60,7 @@ describe('Integration', function() {
 
     afterEach(function(done) {
       bot.quit();
-      bot.on('end', done);
+      bot.on('end', () => done());
     });
 
     it('should react on request repeating', function(done) {
@@ -67,7 +69,7 @@ describe('Integration', function() {
         plugins: [AutoAuth],
         AutoAuth: {
           password: 'testpass',
-          repeatCb: done
+          repeatCb: () => done()
         }
       });
 
@@ -83,7 +85,7 @@ describe('Integration', function() {
     it('should suppress request repeating reaction on ignoreRepeat option', function(done) {
       bot = mineflayer.createBot({
         username: 'Player',
-        plugins: [AutoAuth],
+        plugins: { AutoAuth },
         AutoAuth: {
           password: 'testpass',
           repeatCb: function() {
@@ -109,7 +111,7 @@ describe('Integration', function() {
 function sendMsg(text, cb) {
   server.on('login', function(client) {
     var message = '{ translate: "chat.type.text", with: ["' + text + '"]}';
-    client.write('chat', { message: message });
+    client.write('chat', { message: message, position: 0, sender: '0' });
     if(cb) {
       client.on('chat', cb);
     }

@@ -1,4 +1,4 @@
-var authCommand = require('./lib/generate-auth');
+const authCommand = require('./lib/generate-auth')
 
 module.exports = function(bot, botConfig) {
   // Detect possible login/register failure
@@ -21,10 +21,10 @@ module.exports = function(bot, botConfig) {
     throw new Error('Password property missing in second argument');
   }
 
-  bot.chatAddPattern(/\/register/, 'registerRequest', 'Registration request from server');
-  bot.chatAddPattern(/\/login/, 'loginRequest', 'Login request from server');
+  bot.addChatPattern('registerRequest', /\/register/);
+  bot.addChatPattern('loginRequest', /\/login/);
 
-  bot.on('registerRequest', function() {
+  bot.on('chat:registerRequest', function() {
     bot.chat(authCommand('register', config.password));
     if(config.logging) {
       console.log('Got register request');
@@ -43,7 +43,8 @@ module.exports = function(bot, botConfig) {
       isCommandSended = true;
     }
   });
-  bot.on('loginRequest', function() {
+
+  bot.on('chat:loginRequest', function() {
     bot.chat(authCommand('login', config.password));
     if(config.logging) {
       console.log('Got login request');
